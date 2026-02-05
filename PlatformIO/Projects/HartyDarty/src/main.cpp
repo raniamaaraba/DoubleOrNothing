@@ -17,8 +17,6 @@ int myFunction(int x, int y) {
   return x + y;
 }
 
-//notes
-//notes2
 
 
 // Basic demo for accelerometer & gyro readings from Adafruit

@@ -448,6 +448,7 @@ void loop() {
   // }
 
   // Even newer version!
+  // Reference for how the sensor reading works -------------------------------------------------------------------------------------------------------
   if (loggingActive && launch){
       for (int i=0; i<20; i++) {
         // Computes current time 

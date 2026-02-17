@@ -110,9 +110,8 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C1"
-			(at 0 -1.43 0)
+			(at 2.225 -1 0)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "cc668c4a-7438-49d0-ba8e-1995057d8c6b")
 			(effects
 				(font
@@ -252,9 +251,8 @@
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R1"
-			(at 0 -1.17 0)
+			(at 2.01 0 0)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "3aa89b7b-0894-486c-8dfa-a0e08ca5e074")
 			(effects
 				(font
@@ -394,9 +392,8 @@
 		(descr "LGA, 14 Pin (https://www.st.com/resource/en/datasheet/lsm6ds3tr-c.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py")
 		(tags "LGA NoLead")
 		(property "Reference" "U3"
-			(at 0 -2.2 0)
+			(at -2.8375 0.75 0)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "0eda7563-f570-49af-862f-be90bac6149c")
 			(effects
 				(font
@@ -731,9 +728,8 @@
 		(descr "Terminal Block Phoenix MPT-0,5-4-2.54, 4 pins, pitch 2.54mm, size 10.6x6.2mm, drill diameter 1.1mm, pad diameter 2.2mm, http://www.mouser.com/ds/2/324/ItemDetail_1725672-916605.pdf, script-generated using https://gitlab.com/kicad/libraries/kicad-footprint-generator/-/tree/master/scripts/TerminalBlock_Phoenix")
 		(tags "THT Terminal Block Phoenix MPT-0,5-4-2.54 pitch 2.54mm size 10.6x6.2mm drill 1.1mm pad 2.2mm")
 		(property "Reference" "J2"
-			(at 3.81 -4.22 0)
+			(at 10.62 2 0)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "8d998960-97ea-4b7b-a6b7-f7fde55e587b")
 			(effects
 				(font
@@ -1174,9 +1170,8 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C2"
-			(at 0 -1.43 90)
+			(at -0.275 -1.43 90)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "00a4055c-65b5-4f65-ba9f-2194c1a07ef4")
 			(effects
 				(font
@@ -1508,9 +1503,8 @@
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R2"
-			(at 0 -1.17 0)
+			(at 2.01 0 0)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "3d98ad4c-3791-4d3a-a701-3adca62e5c55")
 			(effects
 				(font
@@ -1648,15 +1642,14 @@
 		(uuid "e125d986-5413-4238-b93a-170d2e46a518")
 		(at 206.12 62.12)
 		(property "Reference" "U1"
-			(at -8 -12 0)
+			(at -5.62 -11.12 0)
 			(unlocked yes)
 			(layer "F.SilkS")
-			(hide yes)
 			(uuid "b948246f-d137-4d65-8cad-7074975f3685")
 			(effects
 				(font
-					(size 0.635 0.635)
-					(thickness 0.1016)
+					(size 1 1)
+					(thickness 0.125)
 				)
 			)
 		)
@@ -2281,7 +2274,6 @@
 		(property "Reference" "R4"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "7f7db391-052e-4a2e-8198-e3e63f38a0fa")
 			(effects
 				(font
@@ -2428,7 +2420,6 @@
 		(property "Reference" "R8"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "88156ea3-5a6e-4682-b84a-0024e04324b9")
 			(effects
 				(font
@@ -2575,7 +2566,6 @@
 		(property "Reference" "R5"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "166aaa12-312c-4dfa-ac67-ff65a37a0c3e")
 			(effects
 				(font
@@ -2720,10 +2710,9 @@
 		(descr "LGA-8")
 		(tags "lga land grid array")
 		(property "Reference" "U4"
-			(at 0 3.65 0)
+			(at -0.425 -3.875 0)
 			(layer "B.SilkS")
-			(hide yes)
-			(uuid "a4273672-f743-430a-be17-25a27f633753")
+			(uuid "379a5833-facf-439c-a924-ff0760d2ae22")
 			(effects
 				(font
 					(size 1 1)
@@ -2735,7 +2724,7 @@
 		(property "Value" "MS5611-01BA"
 			(at 0.575 -3.65 0)
 			(layer "B.Fab")
-			(uuid "dfa29e13-166e-41f6-8829-5543086d9bad")
+			(uuid "e7786a22-cc78-4f50-bcf1-6e6271f18142")
 			(effects
 				(font
 					(size 1 1)
@@ -2749,7 +2738,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "7ca879b2-478d-4fa3-87ce-ebf731277037")
+			(uuid "cb344511-74ee-425c-81c4-bf315ee3bdc2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2763,7 +2752,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "0d91ba7a-27c5-4d1b-a9a5-2611fd1c05fb")
+			(uuid "f16d57e9-21ff-4ad2-a5cd-ddd5be877e5b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3055,7 +3044,6 @@
 		(property "Reference" "J3"
 			(at 1.27 4.22 0)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "b067402d-8f73-4b68-b4d7-19bb0339b474")
 			(effects
 				(font
@@ -3461,10 +3449,9 @@
 		(descr "JST PH series connector, B2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST PH vertical")
 		(property "Reference" "J1"
-			(at 1 2.9 0)
+			(at 1 -4 0)
 			(layer "B.SilkS")
-			(hide yes)
-			(uuid "dbef812d-3945-4b39-b610-066273fee2a1")
+			(uuid "5da14720-65d6-4001-9101-014d3be4e4ef")
 			(effects
 				(font
 					(size 1 1)
@@ -3476,7 +3463,7 @@
 		(property "Value" "Battery Connector"
 			(at -1.5 -7 0)
 			(layer "B.Fab")
-			(uuid "d370a751-2a6c-41d8-96a1-6536100d19b1")
+			(uuid "c43c44e6-3db9-4577-b8ef-26546b765272")
 			(effects
 				(font
 					(size 1 1)
@@ -3489,7 +3476,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "63cf529b-7f33-424a-b7e0-6561f7f55be7")
+			(uuid "9eb811f2-e942-4d3f-af4a-246047d0b90b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3502,7 +3489,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "8dc1cba9-4ded-49c6-9e70-f2ed496e5c43")
+			(uuid "ba1fac75-a697-4eb2-a67d-23360833d44a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3923,7 +3910,6 @@
 		(property "Reference" "R6"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "bd093796-f6e0-47f5-970f-2a37574a9747")
 			(effects
 				(font
@@ -4070,7 +4056,6 @@
 		(property "Reference" "R3"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "dcf16c15-bb2a-4d29-a872-dfa54a3c6620")
 			(effects
 				(font
@@ -4217,7 +4202,6 @@
 		(property "Reference" "C3"
 			(at 0 1.43 0)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "3de75fd4-cbf7-477a-a4b8-d657b144c343")
 			(effects
 				(font
@@ -4362,9 +4346,8 @@
 		(descr "3-pin TSOT23 package, http://www.analog.com.tw/pdf/All_In_One.pdf")
 		(tags "TSOT-23")
 		(property "Reference" "Q3"
-			(at 0 2.6 0)
+			(at 3.19 0 0)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "10999a5a-1fbb-4089-9de0-bce701194a86")
 			(effects
 				(font
@@ -4622,9 +4605,8 @@
 		(descr "3-pin TSOT23 package, http://www.analog.com.tw/pdf/All_In_One.pdf")
 		(tags "TSOT-23")
 		(property "Reference" "Q1"
-			(at 0 2.6 0)
+			(at 3.19 -0.33 0)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "45e91a96-b56f-4241-a473-2e653f27e061")
 			(effects
 				(font
@@ -4882,9 +4864,8 @@
 		(descr "3-pin TSOT23 package, http://www.analog.com.tw/pdf/All_In_One.pdf")
 		(tags "TSOT-23")
 		(property "Reference" "Q2"
-			(at 0 2.6 0)
+			(at 3.19 -0.165 0)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "b1fbffcf-5a22-4d76-9e76-22c65f2c4b60")
 			(effects
 				(font
@@ -5144,7 +5125,6 @@
 		(property "Reference" "R7"
 			(at 0 1.17 90)
 			(layer "B.SilkS")
-			(hide yes)
 			(uuid "daae1f36-53d9-4e1b-8432-8819ef95c8da")
 			(effects
 				(font
@@ -5301,19 +5281,6 @@
 			(font
 				(size 1.5 1.5)
 				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "JA"
-		(at 212 82.5 0)
-		(layer "F.SilkS")
-		(uuid "d829308b-09f2-475d-8e2f-00c92a324e75")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.16)
 				(bold yes)
 			)
 			(justify left bottom)

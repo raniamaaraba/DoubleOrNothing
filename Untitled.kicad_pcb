@@ -1357,7 +1357,7 @@
 		(uuid "e125d986-5413-4238-b93a-170d2e46a518")
 		(at 206.12 62.12)
 		(property "Reference" "U1"
-			(at 10.13 9.88 0)
+			(at 5.58 -11.27 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "ae2df5a2-2f8e-40a2-b82a-f8618eea9a45")
@@ -2430,7 +2430,7 @@
 			(uuid "50164a77-abda-4494-b254-19ed1dd57009")
 			(effects
 				(font
-					(size 1 1)
+					(size 0.8 0.8)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -4040,7 +4040,7 @@
 			(uuid "1bc0ba5c-6682-4ac7-9bc3-c1c1ecf85970")
 			(effects
 				(font
-					(size 1 1)
+					(size 0.8 0.8)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -4704,7 +4704,7 @@
 			(uuid "79b865f7-f5c9-4ab3-803e-8768b0512bce")
 			(effects
 				(font
-					(size 1 1)
+					(size 0.8 0.8)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -5407,7 +5407,7 @@
 		)
 	)
 	(gr_text "UCRC"
-		(at 217 64 0)
+		(at 188.75 64 0)
 		(layer "F.SilkS")
 		(uuid "1dd7ccde-5be6-457d-832a-ce4af0def209")
 		(effects
@@ -5492,7 +5492,18 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Avionics Team:\n\nJohn D. Jane D.\nRobert H.\nFox M. James H.\nEllena R.\nJake S. "
+	(gr_text "This Side\nTowards\nSpace"
+		(at 220 72.75 0)
+		(layer "F.SilkS")
+		(uuid "cf0054bf-88e9-40c0-9273-037506e9b0e0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "Avionics Team:\n\nJohn D. Jane D.\nRobert H.\nFox M. James H.\nEllena R.\nJake S. Jeb K."
 		(at 206.25 57.75 0)
 		(layer "F.SilkS")
 		(uuid "e769e62f-6fc2-4d89-9afd-2ed56c0b61fb")

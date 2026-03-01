@@ -4471,7 +4471,7 @@
 		)
 		(uuid "2858cf95-2f8b-4a55-9d44-12229f15ac62")
 	)
-	(label "IGNIT 1"
+	(label "IGNIT 2"
 		(at 187.96 137.16 180)
 		(effects
 			(font
@@ -4511,7 +4511,7 @@
 		)
 		(uuid "4562b9b7-eabb-42a0-be54-1637f1aa49b8")
 	)
-	(label "IGNIT 2"
+	(label "IGNIT 3"
 		(at 96.52 125.73 0)
 		(effects
 			(font
@@ -4521,7 +4521,7 @@
 		)
 		(uuid "47499a35-5981-43e6-9639-16b12e27f5e1")
 	)
-	(label "CONT 1"
+	(label "CONT 2"
 		(at 187.96 133.35 180)
 		(effects
 			(font
@@ -4531,7 +4531,7 @@
 		)
 		(uuid "4a43345e-c904-4400-8d1c-1fde4e51cb72")
 	)
-	(label "IGNIT 3"
+	(label "IGNIT 1"
 		(at 96.52 133.35 0)
 		(effects
 			(font
@@ -4551,7 +4551,7 @@
 		)
 		(uuid "6e07db68-458c-4635-8082-3a5baec619e2")
 	)
-	(label "CONT 3"
+	(label "CONT 1"
 		(at 96.52 129.54 0)
 		(effects
 			(font
@@ -4571,7 +4571,7 @@
 		)
 		(uuid "845c2af3-83f1-4310-8c51-0cb4e9fb5c87")
 	)
-	(label "CONT 2"
+	(label "CONT 3"
 		(at 96.52 121.92 0)
 		(effects
 			(font
@@ -4840,7 +4840,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 98.806 90)
 			(effects
 				(font
@@ -5499,7 +5499,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "57a897d0-a5a2-4b0d-9f1b-06b89c1811cf")
-		(property "Reference" "R6"
+		(property "Reference" "R5"
 			(at 52.07 147.066 90)
 			(effects
 				(font
@@ -5507,7 +5507,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 149.606 90)
 			(effects
 				(font
@@ -5551,7 +5551,7 @@
 		(instances
 			(project "Untitled"
 				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "R6")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -5574,7 +5574,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 114.046 90)
 			(effects
 				(font
@@ -5837,7 +5837,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6c54fd62-83e5-4c7b-be3f-2ad6eec061c5")
-		(property "Reference" "R7"
+		(property "Reference" "R8"
 			(at 52.07 167.386 90)
 			(effects
 				(font
@@ -5845,7 +5845,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 169.926 90)
 			(effects
 				(font
@@ -5889,7 +5889,7 @@
 		(instances
 			(project "Untitled"
 				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "R7")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -6259,7 +6259,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "94a1ccad-41a5-4036-8272-4a88cdcce4d9")
-		(property "Reference" "R5"
+		(property "Reference" "R6"
 			(at 52.07 131.826 90)
 			(effects
 				(font
@@ -6267,7 +6267,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 134.366 90)
 			(effects
 				(font
@@ -6311,7 +6311,7 @@
 		(instances
 			(project "Untitled"
 				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "R5")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -7395,7 +7395,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "eb000dc1-c3a7-4d5f-b253-71daf3aa6905")
-		(property "Reference" "R8"
+		(property "Reference" "R7"
 			(at 52.07 182.626 90)
 			(effects
 				(font
@@ -7403,7 +7403,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "100K"
 			(at 52.07 185.166 90)
 			(effects
 				(font
@@ -7447,7 +7447,7 @@
 		(instances
 			(project "Untitled"
 				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "R8")
+					(reference "R7")
 					(unit 1)
 				)
 			)

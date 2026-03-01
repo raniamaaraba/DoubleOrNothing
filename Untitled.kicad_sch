@@ -2954,12 +2954,6 @@
 		(uuid "40f98f87-5365-43b9-82f8-f34f027c91fe")
 	)
 	(junction
-		(at 191.77 67.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "431e7786-9947-4073-8e79-9ed445bd93ea")
-	)
-	(junction
 		(at 58.42 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3036,6 +3030,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e149d575-506e-48f0-b51d-64b8eb3911ed")
+	)
+	(junction
+		(at 191.77 67.31)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fa18792a-1b59-492e-822d-5906c5f5afaf")
 	)
 	(junction
 		(at 195.58 125.73)
@@ -3270,6 +3270,16 @@
 			(type default)
 		)
 		(uuid "1fb3d1dd-4299-437e-b937-e78ed43652f0")
+	)
+	(wire
+		(pts
+			(xy 191.77 66.04) (xy 191.77 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21a46e7e-fe98-4fa0-abe0-aa715e5040b0")
 	)
 	(wire
 		(pts
@@ -3770,16 +3780,6 @@
 			(type default)
 		)
 		(uuid "8c0c6e2c-78db-45b6-a8e7-3e487c6834be")
-	)
-	(wire
-		(pts
-			(xy 191.77 67.31) (xy 203.2 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8c8ddfc2-3a7b-4da0-9e6a-09a96e31cfe5")
 	)
 	(wire
 		(pts
@@ -4333,6 +4333,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 67.31) (xy 203.2 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3391f6e-a17b-4285-aca4-0b264f241bb8")
+	)
+	(wire
+		(pts
 			(xy 58.42 144.78) (xy 58.42 129.54)
 		)
 		(stroke
@@ -4748,72 +4758,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 191.77 83.82 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "09c72793-dcea-4646-aabb-82dbcd3c9b9b")
-		(property "Reference" "#PWR021"
-			(at 191.77 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 191.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 191.77 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 191.77 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 191.77 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "caf9e204-bb44-43ba-813b-60c1376b0274")
-		)
-		(instances
-			(project "Untitled"
-				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 44.45 110.49 0)
 		(unit 1)
@@ -5145,6 +5089,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+BATT")
+		(at 191.77 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "29ad2030-bde3-40fb-ae88-eac5f4a0a4e9")
+		(property "Reference" "#PWR020"
+			(at 191.77 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+BATT"
+			(at 191.77 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 191.77 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
+			(at 191.77 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "16561811-5215-4ded-a5d7-a8aa696e985f")
+		)
+		(instances
+			(project "Untitled"
+				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 269.24 152.4 0)
 		(unit 1)
@@ -5409,72 +5419,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 191.77 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4b557ff6-f632-4660-8d55-7b9076cf1d7d")
-		(property "Reference" "#PWR020"
-			(at 191.77 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 191.77 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 191.77 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 191.77 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 191.77 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cf235962-8bd2-4677-90a8-0e59b178b559")
-		)
-		(instances
-			(project "Untitled"
-				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
-					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Transistor_FET:Q_NMOS_DGS")
 		(at 41.91 102.87 0)
 		(unit 1)
@@ -5675,6 +5619,72 @@
 			(project ""
 				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
 					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+BATT")
+		(at 191.77 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "67fe165c-7c7f-4f94-90ea-9aa58d7d30c5")
+		(property "Reference" "#PWR021"
+			(at 191.77 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+BATT"
+			(at 191.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 191.77 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
+			(at 191.77 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dacf304a-223d-4264-ba41-3d51495abe73")
+		)
+		(instances
+			(project "Untitled"
+				(path "/de1c2513-dd99-4dc0-9685-67272008b11d"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)

@@ -1,3 +1,16 @@
+/**
+Documentation block
+03/04/26 - RH - Modified HTML code to look better
+
+
+
+
+*/
+
+
+
+
+
 #include <Arduino.h>
 #include <Adafruit_LSM6DSO32.h>
 #include <MS5611.h>
@@ -555,15 +568,21 @@ void loop() {
           if (currentLine.length() == 0) {
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
-            client.println();
+            //BEGIN RH - 03/04/2026
+            //clean up look of HTML page
+            client.println("<style>html { font-family: Times New Roman; display: inline-block; margin: 0px auto; text-align: center;}");
+            client.println(".button { background-color: #FF0044; border: none; color: white; padding: 16px 40px;");
+            client.println(".button2 {background-color: #4CAF50;}</style></head>");
             client.println("<html><body>");
-            client.println("<h2>ESP32 Local Control</h2>");
-            client.println("<a href=\"/H\">Turn ON LED</a><br>");
-            client.println("<a href=\"/L\">Turn OFF LED</a><br>");
+            client.println("<h1>ESP32 - Double Trouble Server</h1>");
+            client.println("<p><a href=\"/H\">button class=\"button\">Turn ON LED</button></a></p>");
+            client.println("<p><a href=\"/L\">button class=\"button button2\">Turn OFF LED</button></a></p>"); //possible br end
             client.println("<a href=\"/data.txt\" download>Download File</a><br>");
             client.println("</body></html>");
             client.println();
             break;
+
+            //END RH
           } else {
             currentLine = "";
           }

@@ -34,11 +34,52 @@
 		(45 "User.4" user)
 	)
 	(setup
+		(stackup
+			(layer "F.SilkS"
+				(type "Top Silk Screen")
+			)
+			(layer "F.Paste"
+				(type "Top Solder Paste")
+			)
+			(layer "F.Mask"
+				(type "Top Solder Mask")
+				(color "Red")
+				(thickness 0.01)
+			)
+			(layer "F.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "dielectric 1"
+				(type "core")
+				(thickness 1.51)
+				(material "FR4")
+				(epsilon_r 4.5)
+				(loss_tangent 0.02)
+			)
+			(layer "B.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "B.Mask"
+				(type "Bottom Solder Mask")
+				(color "Red")
+				(thickness 0.01)
+			)
+			(layer "B.Paste"
+				(type "Bottom Solder Paste")
+			)
+			(layer "B.SilkS"
+				(type "Bottom Silk Screen")
+			)
+			(copper_finish "None")
+			(dielectric_constraints no)
+		)
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_5755f5ff)
+			(layerselection 0x00000000_00000000_55555555_57557555)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
 			(disableapertmacros no)
 			(usegerberextensions yes)
@@ -57,24 +98,24 @@
 			(pdf_front_fp_property_popups yes)
 			(pdf_back_fp_property_popups yes)
 			(pdf_metadata yes)
-			(pdf_single_document no)
+			(pdf_single_document yes)
 			(dxfpolygonmode yes)
 			(dxfimperialunits yes)
 			(dxfusepcbnewfont yes)
 			(psnegative no)
 			(psa4output no)
-			(plot_black_and_white yes)
+			(plot_black_and_white no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 4)
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../../Downloads/")
+			(outputdirectory "../../../../Downloads/")
 		)
 	)
 	(net 0 "")
@@ -1631,7 +1672,7 @@
 			(net 14 "/CONT 3")
 			(pinfunction "GPIO1_A0_D0")
 			(pintype "passive")
-			(uuid "51fdcbce-6926-4621-b616-5c4933da23dd")
+			(uuid "b7be5ca7-a58f-43b1-8573-f06f2ec941c6")
 		)
 		(pad "2" smd roundrect
 			(at -8.455 -5.08 180)
@@ -1653,7 +1694,7 @@
 			(net 9 "/IGNIT 3")
 			(pinfunction "GPIO2_A1_D1")
 			(pintype "passive")
-			(uuid "d9add276-f840-48e4-bc47-9d58e9385406")
+			(uuid "d0d1ee0a-766a-49c0-820d-169e34ce1fea")
 		)
 		(pad "3" smd roundrect
 			(at -8.455 -2.54 180)
@@ -1675,7 +1716,7 @@
 			(net 12 "/CONT 1")
 			(pinfunction "GPIO3_A2_D2")
 			(pintype "passive")
-			(uuid "687ca694-8c84-47f7-9358-1a3d9cea3182")
+			(uuid "dc7bede9-de07-4d1b-89fc-08da79a0488d")
 		)
 		(pad "4" smd roundrect
 			(at -8.455 0 180)
@@ -1697,7 +1738,7 @@
 			(net 7 "/IGNIT 1")
 			(pinfunction "GPIO4_A3_D3")
 			(pintype "passive")
-			(uuid "63485726-cacf-4e07-b056-5ac8fe773016")
+			(uuid "784de086-6ad1-4e96-85cc-9a8be7f172eb")
 		)
 		(pad "5" smd roundrect
 			(at -8.455 2.54 180)
@@ -1719,7 +1760,7 @@
 			(net 11 "/SDA")
 			(pinfunction "GPIO5_A4_D4_SDA")
 			(pintype "passive")
-			(uuid "3e6bdc76-7fdb-4ba7-9de0-f7deb398915e")
+			(uuid "d1f5eeec-9488-45b6-a670-acf4ef3da344")
 		)
 		(pad "6" smd roundrect
 			(at -8.455 5.08 180)
@@ -1741,7 +1782,7 @@
 			(net 10 "/SCL")
 			(pinfunction "GPIO6_A5_D5_SCL")
 			(pintype "passive")
-			(uuid "4c737982-b23f-413c-8dbe-c681ccff4143")
+			(uuid "8fadc4ae-d122-44ed-b43f-e9c8df5b287a")
 		)
 		(pad "7" smd roundrect
 			(at -8.455 7.62 180)
@@ -1763,7 +1804,7 @@
 			(net 15 "unconnected-(U1-GPIO43_A6_D6_TX-Pad7)_1")
 			(pinfunction "GPIO43_A6_D6_TX")
 			(pintype "passive+no_connect")
-			(uuid "3541850d-8d98-48c0-9755-628a1a0be1ab")
+			(uuid "cd9dd156-29f3-445f-8a15-09a3d611bf0f")
 		)
 		(pad "8" thru_hole circle
 			(at 7.62 7.62)
@@ -1785,7 +1826,7 @@
 			(pinfunction "GPIO44_D7_RX")
 			(pintype "passive+no_connect")
 			(thermal_bridge_angle 45)
-			(uuid "ebe7122f-b82d-40f3-a452-43c4dd730226")
+			(uuid "ad8266e7-7943-4a7f-b451-429ba9013f45")
 		)
 		(pad "9" thru_hole circle
 			(at 7.62 5.08)
@@ -1807,7 +1848,7 @@
 			(pinfunction "GPIO7_A8_D8_SCK")
 			(pintype "passive+no_connect")
 			(thermal_bridge_angle 45)
-			(uuid "95aa76e0-5a4a-4f9e-a21c-b7e4f0b93ef7")
+			(uuid "5d5d9981-4b33-477b-b9d6-ab65f9bac0bf")
 		)
 		(pad "10" thru_hole circle
 			(at 7.62 2.54)
@@ -1829,7 +1870,7 @@
 			(pinfunction "GPIO8_A9_D9_MISO")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "dc184a46-2eab-407d-a648-f163f519ae7e")
+			(uuid "1835497c-f466-486d-92b4-35aecff5e347")
 		)
 		(pad "11" thru_hole circle
 			(at 7.62 0)
@@ -1851,7 +1892,7 @@
 			(pinfunction "GPIO9_A10_D10_MOSI")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "ae0449be-8826-48b8-a468-e33860d477b7")
+			(uuid "b8e1a8ee-bf26-4eea-924a-9836983fa6ac")
 		)
 		(pad "12" thru_hole circle
 			(at 7.62 -2.54)
@@ -1873,7 +1914,7 @@
 			(pinfunction "3V3")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "9da1d913-5de8-4903-b447-f2f579d1dd0e")
+			(uuid "c877491e-a9b7-4642-805a-ab4f5d05a75c")
 		)
 		(pad "13" thru_hole circle
 			(at 7.62 -5.08)
@@ -1895,7 +1936,7 @@
 			(pinfunction "GND")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "8301c749-687c-4dea-9017-fa8e497d39f0")
+			(uuid "c43274c3-0f24-4b7f-bb8c-05c3d21c26fa")
 		)
 		(pad "14" thru_hole circle
 			(at 7.62 -7.62)
@@ -1917,7 +1958,7 @@
 			(pinfunction "5V")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "f32a5cb1-8db0-4aa9-b0a3-d6bab33ad28d")
+			(uuid "209db8db-c6d6-40dd-945d-abee7f4cfd74")
 		)
 		(embedded_fonts no)
 		(model "${AMZPATH}/3dmodels/AMz3D.3dshapes/XIAO-nRF52840 v15.step"

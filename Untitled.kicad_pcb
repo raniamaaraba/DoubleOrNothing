@@ -5992,6 +5992,18 @@
 			)
 		)
 	)
+	(gr_text "Avionics Team"
+		(at 206.25 52.5 0)
+		(layer "F.SilkS")
+		(uuid "1af34ebb-b0c6-40fd-87fd-8a9ea380fec7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.175)
+				(bold yes)
+			)
+		)
+	)
 	(gr_text "UCRC"
 		(at 188.75 64 0)
 		(layer "F.SilkS")
@@ -6089,14 +6101,16 @@
 			)
 		)
 	)
-	(gr_text "Avionics Team:\n\nAndrew J.\nAniket S.\nAnurag D.\nHayden K. \nIsrael R.\nJackson A.\nJonah U. \nLoring T.\nRania H."
-		(at 206.25 61 0)
+	(gr_text "Andrew J.\nAniket S.\nAnurag D.\nEthan G.\nHayden K.\nIsrael R.\nJackson A.\nJonah U.\nLoring T.\nRania H."
+		(at 206 61.75 0)
 		(layer "F.SilkS")
 		(uuid "e769e62f-6fc2-4d89-9afd-2ed56c0b61fb")
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
+				(thickness 0.175)
+				(bold yes)
+				(italic yes)
 			)
 		)
 	)

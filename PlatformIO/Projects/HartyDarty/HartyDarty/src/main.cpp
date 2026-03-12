@@ -512,39 +512,27 @@ void loop() {
             file.printf("%.5f,%.5f \n",Alt_[k],RelativeAlt_[k]); // Logs Altitude
 
             //BEGIN RH - Logic for apogee detection
-            // two options: either log three data points and determine or max at end 
-            float gyrolog1[3];
-            float gyrolog2[3];
-            float gyrolog3[3];
-            float apogeeDet[3];
+            //logging two gyro points and determining based on Euclidean norm apogee
 
-            apogeeDet[3] = [Wx_[k],Wy_[k],Wz_[k]];
+            // ||x|| = sqrt(x_1^2 + x_2^2 + ... x_n^2)
+            float gyrolog = sqrt(
+              (Wx_[k]) * (Wx_[k]) + (Wy_[k]) * (Wy_[k]) + (Wz_[k]) * (Wz_[k])
+            );
 
-            if (k == 0) {
-              gyrolog1 = [Wx_[0],Wy_[0],Wz_[0]];
-            } else if (k == 1) {
-              gyrolog2 = [Wx_[1],Wy_[1],Wz_[1]];
-            } else if (k == 2){
-              gyrolog3 = [Wx_[k],Wy_[k],Wz_[k]];
-            } else {
-              if (apogeeDet.Wx_[k] < apogeeDet.Wx_[k-1])
-                Serial.print("Apogee: %d,")
-              k++;
-              /** if we are starting out then we dont need to compare 
-              * if gl2.y > gl3.y then check if gl3.y > gl1.y then this should be past apogee
-              * need a designated threshold as well to start actually comparing at so it doesnt think apogee 3ft off ground
+            static float gyroPrev = 0;
+            static bool apogee = false;
 
-              need a method here to save a max value to get true apogee
-              */
-
-              //while(gyrolog1.Wx_[k] > gyolog2.Wx_[k]) can't check with log 1? maybe be due to not falling as fast
-              while(gyrolog3.Wx_[k] > gyrolog2.Wx_[k]) {
-                while((gyrolog3.Wx_[k] - gyrolog1.Wx_[k]) > 0 ) {
-                  Serial.printf("Apogee: %.5f,%.5f,%.5f,",Wx_[k-1],Wy_[k-1],Wz_[k-1]);
-                }
+            //pass
+            if (k > 0 && !apogee) {
+              //detection logic
+              if (gyroPrev > gyrolog) {
+                Serial.print("Apogee Detected");
+                Serial.printf("Apogee at: %.5f, %.5f, %.5f\n", Wx_[k-1], Wy_[k-1], Wz_[k-1]);
+                apogee = true;
               }
             }
-
+            gyroPrev = gyrolog;
+            }
             //END RH
           }
 
@@ -562,7 +550,7 @@ void loop() {
         }
 
         iter = 0;
-      }
+      
     }
 
 

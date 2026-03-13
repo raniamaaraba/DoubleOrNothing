@@ -2,7 +2,14 @@
 #include <MS5611.h>
 #include <Adafruit_LSM6DSO32.h>
 
-
+// Function to print IMU and barometer data to the serial monitor for debugging/testing
+// Code by Loring T
+// Input Description:
+// IMU: Sensor specific class variable for the IMU, set in the pre-setup loop code (ex. Adafruit_LSM6DSO32 dso32;) where dso32 would be passed as IMU
+// BARO: Sensor specific class variable for the barometer, set in the pre-setup loop code (ex. MS5611 MS5611(0x77);) where MS5611 would be passes as BARO
+// plot: integer that determines how the function formats the output data. 
+//  plot=1: (default) Outputs the data in a format optimized for the "Serial Plotter" VS Code extension (see code notes for details) 
+//  plot=0: Outputs the data in a format easily read in the regular serial monitor, won't work with any serial plotter extensions
 void data_print_test(Adafruit_LSM6DSO32& IMU, MS5611& BARO,int plot=1){ // & after class declaration determines how to pass, where & means by reference
     if (plot==0) {
         //  /* Get a new normalized sensor event */

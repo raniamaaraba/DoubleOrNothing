@@ -1,16 +1,12 @@
 /**
 Documentation block
 03/04/26 - RH - Modified HTML code to look better
+03/12/26 - RH - Cleaned up comments and created separate file for File mangement/logging
 
 
 
 
 */
-
-
-
-
-
 #include <Arduino.h>
 #include <Adafruit_LSM6DSO32.h>
 #include <MS5611.h>
@@ -23,6 +19,7 @@ Documentation block
 // File system setup
 #include <LittleFS.h>
 #include "FS.h"
+#include "fileManagement.h"
 
 // Formats file system if not already formatted
 #define FORMAT_LITTLEFS_IF_FAILED true
@@ -64,7 +61,7 @@ bool startTimeLogged = false;
 float launch_acc = 1*9.80665; // Launch acceleration threshold (g), 5g is actually 
 float launch_buffer[25]; // Buffer that contains launch detection acceleration readings
 
-//check that all components are up and running
+//Check that all components are up and running
 Adafruit_LSM6DSO32 dso32;
 
 // Set I2C adress for barometer - Ignore any error here relating to "not a class name"
@@ -74,7 +71,7 @@ sensors_event_t gyro;
 sensors_event_t temp2;
 
 // Define pins for continuity testing
-// Ig for ignition wires and cont for continuity wires
+
 // NOTE! Reflects ports on final flight computer, not breadboard computer!
 #define ig1 2
 #define cont1 1
@@ -83,179 +80,9 @@ sensors_event_t temp2;
 #define ig3 9
 #define cont3 8
 
-// Functions for using the LittleFS file system - Will be moved out of main later! 
-void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
-    Serial.printf("Listing directory: %s\r\n", dirname);
-
-    File root = fs.open(dirname);
-    if(!root){
-        Serial.println("- failed to open directory");
-        return;
-    }
-    if(!root.isDirectory()){
-        Serial.println(" - not a directory");
-        return;
-    }
-
-    File file = root.openNextFile();
-    while(file){
-        if(file.isDirectory()){
-            Serial.print("  DIR : ");
-            Serial.println(file.name());
-            if(levels){
-                listDir(fs, file.path(), levels -1);
-            }
-        } else {
-            Serial.print("  FILE: ");
-            Serial.print(file.name());
-            Serial.print("\tSIZE: ");
-            Serial.println(file.size());
-        }
-        file = root.openNextFile();
-    }
-}
-
-void createDir(fs::FS &fs, const char * path){
-  Serial.printf("Creating Dir: %s\n", path);
-  if(fs.mkdir(path)){
-    Serial.println("Dir created");
-  } else {
-    Serial.println("mkdir failed");
-  }
-}
-
-void removeDir(fs::FS &fs, const char * path){
-  Serial.printf("Removing Dir: %s\n", path);
-  if(fs.rmdir(path)){
-    Serial.println("Dir removed");
-  } else {
-    Serial.println("rmdir failed");
-  }
-}
-
-void readFile(fs::FS &fs, const char * path){
-  Serial.printf("Reading file: %s\r\n", path);
-
-  File file = fs.open(path);
-  if(!file || file.isDirectory()){
-    Serial.println("- failed to open file for reading");
-    return;
-  }
-
-  Serial.println("- read from file:");
-  while(file.available()){
-    Serial.write(file.read());
-  }
-  file.close();
-}
-
-void writeFile(fs::FS &fs, const char * path, const char * message){
-  Serial.printf("Writing file: %s\r\n", path);
-
-  File file = fs.open(path, FILE_WRITE);
-  if(!file){
-    Serial.println("- failed to open file for writing");
-    return;
-  }
-  if(file.print(message)){
-    Serial.println("- file written");
-  } else {
-    Serial.println("- write failed");
-  }
-  file.close();
-}
-
-void appendFile(fs::FS &fs, const char * path, const char * message){
-  Serial.printf("Appending to file: %s\r\n", path);
-
-  File file = fs.open(path, FILE_APPEND);
-  if(!file){
-    Serial.println("- failed to open file for appending");
-    return;
-  }
-  if(file.print(message)){
-    Serial.println("- message appended");
-  } else {
-    Serial.println("- append failed");
-  }
-  file.close();
-}
-
-void renameFile(fs::FS &fs, const char * path1, const char * path2){
-  Serial.printf("Renaming file %s to %s\r\n", path1, path2);
-  if (fs.rename(path1, path2)) {
-    Serial.println("- file renamed");
-  } else {
-    Serial.println("- rename failed");
-  }
-}
-
-void deleteFile(fs::FS &fs, const char * path){
-  Serial.printf("Deleting file: %s\r\n", path);
-  if(fs.remove(path)){
-    Serial.println("- file deleted");
-  } else {
-    Serial.println("- delete failed");
-  }
-}
-
-void testFileIO(fs::FS &fs, const char * path){
-  Serial.printf("Testing file I/O with %s\r\n", path);
-
-  static uint8_t buf[512];
-  size_t len = 0;
-  File file = fs.open(path, FILE_WRITE);
-  if(!file){
-    Serial.println("- failed to open file for writing");
-    return;
-  }
-
-  size_t i;
-  Serial.print("- writing" );
-  uint32_t start = millis();
-  for(i=0; i<2048; i++){
-    if ((i & 0x001F) == 0x001F){
-      Serial.print(".");
-    }
-    file.write(buf, 512);
-  }
-  Serial.println("");
-  uint32_t end = millis() - start;
-  Serial.printf(" - %u bytes written in %u ms\r\n", 2048 * 512, end);
-  file.close();
-
-  file = fs.open(path);
-  start = millis();
-  end = start;
-  i = 0;
-  if(file && !file.isDirectory()){
-    len = file.size();
-    size_t flen = len;
-    start = millis();
-    Serial.print("- reading" );
-    while(len){
-      size_t toRead = len;
-      if(toRead > 512){
-        toRead = 512;
-      }
-      file.read(buf, toRead);
-      if ((i++ & 0x001F) == 0x001F){
-        Serial.print(".");
-      }
-      len -= toRead;
-      }
-    Serial.println("");
-    end = millis() - start;
-    Serial.printf("- %u bytes read in %u ms\r\n", flen, end);
-    file.close();
-  } else {
-    Serial.println("- failed to open file for reading");
-  }
-}
 
 void setup(void) {
   Serial.begin(115200);
-  //while (!Serial) // Comment out if not running via USB, otherwise program won't run if serial doesn't open!
   delay(100); // will pause Zero, Leonardo, etc until serial console opens
 
   // Initialize & Format file system
@@ -266,8 +93,9 @@ void setup(void) {
   // All sensor initializations offloaded to 
   sensor_init(dso32,MS5611);
 
-  // Setup PinModes for continuity testing
-  // Setting low for continuity testing
+  //Setup PinModes for continuity testing
+  //Setting low for continuity testing
+
   // Mostfet 1
   analogSetPinAttenuation(cont1,ADC_11db);
   pinMode(ig1,OUTPUT);
@@ -285,24 +113,6 @@ void setup(void) {
   pinMode(cont3,INPUT);
   digitalWrite(ig3,LOW); // Sets mosfet, LOW means off, HIGH means on
 
-  // WiFi Setup -----------------
-
-  //get call for wifi setup
-  //hostname: esp32s3-000000
-  /*
-  WiFiAccessPoint.ino creates a WiFi access point and provides a web server on it.
-
-  Steps:
-  1. Connect to the access point "yourAp"
-  2. Point your web browser to http://192.168.4.1/H to turn the LED on or http://192.168.4.1/L to turn it off
-    OR
-    Run raw TCP "GET /H" and "GET /L" on PuTTY terminal with 192.168.4.1 as IP address and 80 as port
-
-  Created for arduino-esp32 on 04 July, 2018
-  by Elochukwu Ifediora (fedy0)
-  */
-
-  //#define LED_BUILTIN 2   // Set the GPIO pin where you connected your test LED or comment this line out if your dev board has a built-in LED
   pinMode(LED_BUILTIN, OUTPUT);
   //Serial.begin(115200);
   Serial.println();
@@ -349,7 +159,7 @@ void loop() {
 
   // Launch detection ----------------------------------------
   if (!launch){
-    // Read 100 samples of acceleration
+    // Read 25 samples of acceleration
     float delta = 0;
     for (int z=0; z<25; z++){
       dso32.getEvent(&accel, &gyro, &temp2);
@@ -401,64 +211,6 @@ void loop() {
       }
     }
   }
-
-  // Log sensor data every 20 seconds
-  // if (loggingActive && (currentTime - lastWriteTime >= writeInterval)) {
-  //   lastWriteTime = currentTime;
-  
-  //   MS5611.read(); // Must be called each time before getting pressure or temp using below functions!
-  //   float temp = MS5611.getTemperature();
-  //   float pressure = MS5611.getPressure();
-  //   // Altitude relative to sea level
-  //   float seaLevelAltitude = 44330.0 * (1.0 - pow(pressure / 1013.25, 0.1903));
-
-  //   // Altitude relative to launch site
-  //   float relativeAltitude = seaLevelAltitude - 226.2;
-
-
-  //   // Old version
-  //   // File file = LittleFS.open("/data.txt", "a");  // append mode
-  //   // if (file) {
-  //   //   // Print to file
-  //   //   file.printf("T+: %.2f ms\n",startTime-currentTime);
-  //   //   file.printf("Temp: %.2f C, Pressure: %.2f mbar\n", temp, pressure);
-  //   //   file.printf("Accel (g): X=%.2f, Y=%.2f, Z=%.2f\n", xG, yG, zG);
-  //   //   file.printf("Gyro (°/s): X=%.2f, Y=%.2f, Z=%.2f\n\n", gyroX, gyroY, gyroZ);
-  //   //   file.printf("Altitude (ASL): %.2f m\n", seaLevelAltitude);
-  //   //   file.printf("Altitude (from Dayton): %.2f m\n", relativeAltitude); 
-
-  //   //   // Print to serial monitor upon logging completion 
-  //   //   Serial.println("Logging Completed");
-  //   // } else {
-  //   //   Serial.println("Failed to open /data.txt");
-  //   // }
-
-  //   // New version
-  //   File file = LittleFS.open("/data.txt","a"); // "a" is for append mode
-  //   if (file) { // Makes sure file open
-  //     // Computes current time 
-  //     float normalTime = currentTime - startTime; // Float for formatting, maybe fix later
-
-  //     // Print to file
-  //     file.printf("%.0f,",normalTime); // Logs time
-  //     file.printf("%.2f,%.2f,",temp,pressure); // Logs temperature and pressure
-  //     file.printf("%.5f,%.5f,%.5f,",xG,yG,zG); // Logs acceleration
-  //     file.printf("%.5f,%.5f,%.5f,",gyroX,gyroY,gyroZ); // Logs gyro readings
-  //     file.printf("%.5f,%.5f \n",seaLevelAltitude,relativeAltitude); // Logs Altitude
-  //     file.close(); // Closes file
-
-  //     // Serial print upon logging completion
-  //     if(Serial){
-  //       Serial.print("Logging Complete at T+: ");
-  //       Serial.print((currentTime-startTime)/1000.0); // Converts current time from ms to seconds
-  //       Serial.println(" seconds");
-  //     }
-  //   } else {
-  //     if(Serial){
-  //       Serial.println("Failed to open /data.txt");
-  //     }
-  //   }
-  // }
 
   // Even newer version!
   // Reference for how the sensor reading works -------------------------------------------------------------------------------------------------------
@@ -554,6 +306,7 @@ void loop() {
     }
 
 
+  //Setting local host Wifi
   WiFiClient client = server.available();
   if (client) {
     if(Serial){
@@ -588,7 +341,7 @@ void loop() {
             break;
           }
 
-          //html edit page
+          //HTML page
           if (currentLine.length() == 0) {
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
@@ -614,7 +367,7 @@ void loop() {
           currentLine += c;
         }
 
-        //testing with LEDs
+        //sample for website to test activity with LEDs
         if (currentLine.endsWith("GET /H")) {
           digitalWrite(LED_BUILTIN, LOW);
           if(Serial){
@@ -629,6 +382,8 @@ void loop() {
         }
       }
     }
+
+    //Ensure closing client and TCP connection
     client.stop();
     if(Serial){
       Serial.println("Client Disconnected.");
